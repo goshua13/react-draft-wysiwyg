@@ -139,7 +139,7 @@ class WysiwygEditor extends Component {
   keyBindingFn = event => {
     if (event.key === 'Tab') {
       const { onTab } = this.props;
-      if (!onTab || !onTab(event)) {
+      if (!onTab || !onTab(event) || event.keyCode === 13) {
         const editorState = changeDepth(
           this.state.editorState,
           event.shiftKey ? -1 : 1,
